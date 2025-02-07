@@ -57,3 +57,9 @@ index.js within the store folder notes:
 // subscribe that be as provider as a wrapper component into APP.js where App.js that act as needed component!
 
 // { increase , decrease , reset , toggleCounter } =  counterSlice.actions; // de-structure method !
+
+الهدف من معرفة الرفرنس هوا انو في كل ري افاليوات رح يعطيها موقع جديد ولي بتعامل معها هوا يوز افكت 
+
+بينما لحتى تحل مثل هيك مشكلة هوا استخدامك لليوزكولباك وهوا بمنع انو يعمل رفرنس جديد في كل مرة بنعمل فيها ريافاليوات
+
+Note : to solve this issue use both of hooks { useEffect + useCallback[but with function that you work with it! ]  }

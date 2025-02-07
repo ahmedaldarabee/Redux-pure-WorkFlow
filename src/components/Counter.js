@@ -1,7 +1,7 @@
 import '../App.css';
-import React  from 'react'
-import { useSelector, useDispatch } from 'react-redux';
-import { increase , decrease , reset , toggleCounter } from '../store/counterSlice'
+import React, { useEffect , useCallback}  from 'react'
+import { useSelector, useDispatch } from '@reduxjs/toolkit';
+import { increase , decrease , reset } from '../store/counterSlice'
 import {loggIn,loggOut} from '../store/authSlice'
 
 const Counter = () => {
@@ -19,7 +19,23 @@ const Counter = () => {
             dispatcher(loggIn());
         }
     };
-    
+
+    //The main target of using this case that's be for you to understand the main functionality of this hook!
+    // -to see more about this note, see note folder - overall-notes.txt
+
+    const counterHandler = useCallback((type , value) =>{
+        if(type === 'increase'){
+            dispatcher(increase(value))
+        }else if(type === 'decrease'){
+            dispatcher(decrease(value))
+        }else{
+            dispatcher(reset())
+        }
+    },[dispatcher]);
+
+    useEffect(() => {
+        counterHandler('increase',10)
+    },[counterHandler]);
 
     return (
         <>
@@ -32,9 +48,9 @@ const Counter = () => {
                         </div>
                         
                         <div className="m-20 button-handler flex-center gap-20">
-                            <button onClick={() => dispatcher(increase(10)) }  type="button" className="capitalize pointer increase">increase</button>
-                            <button onClick={() => dispatcher(decrease(5))  }  type="button" className="capitalize pointer decrease">decrease</button>
-                            <button onClick={() => dispatcher(reset())}        type="reset" className="capitalize pointer decrease">reset</button>
+                            <button onClick={() => counterHandler('increase',10) }  type="button" className="capitalize pointer increase">increase</button>
+                            <button onClick={() => counterHandler('decrease',5)  }  type="button" className="capitalize pointer decrease">decrease</button>
+                            <button onClick={() => counterHandler('reset')}        type="reset" className="capitalize pointer decrease">reset</button>
                         </div>
                     </div>
                 }

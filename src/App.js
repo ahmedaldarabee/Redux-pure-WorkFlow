@@ -1,5 +1,5 @@
 import './App.css';
-import { Provider } from 'react-redux';
+import { Provider } from '@reduxjs/toolkit';
 import storeManager from './store/index'
 import Counter from './components/Counter'
 
