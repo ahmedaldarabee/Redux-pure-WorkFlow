@@ -10,11 +10,9 @@ import Counter from './components/Counter'
 const App = () => {
 
   return (
-    <>
       <Provider store={storeManager}>
         <Counter/>
       </Provider>
-    </>
   );
 }
 
