@@ -1,0 +1,59 @@
+App.js notes:
+
+    {/*
+    - the provider to listen any updates and provided or running it! where act as subscribe in redux work flow
+    - the movement the data as you know in redux work flow it be in run time by using provider.
+    */}
+
+Counter notes:
+
+  // as you see the component handling in it by using useSelector and useDispatcher
+
+  {/* useDispatcher that send action into store */}
+  {/* useSelector that represent receiving state from store */}
+
+//     const counterValueHandler = (value) => {
+//         return value <= 0 ? "Sorry, it must be up 0" : value;
+//     }
+
+//     const globalState = useSelector((state) => state);
+
+//     const dispatcher = useDispatch();
+
+//     const counterFunctionality = useCallback((type,payload) => {
+//         dispatcher({type,payload}); 
+//     },[dispatcher]);
+
+//   // now we can useEffect to handle onLoading section with handle dependency
+
+//     useEffect(() => {
+//         dispatcher({type:"increase",payload:5})
+//     },[counterFunctionality, dispatcher]);
+
+//     const toggleCounterHandler = () => {
+//         dispatcher({ type:"toggleCounter" });
+//     }
+
+
+index.js within the store folder notes:
+
+// const counterReducer = (state = initState , action) => {
+//     if(action.type === 'increase'){
+//         return { ...state, value : (state.value + action.payload) }
+//     }else if(action.type === 'decrease'){ 
+//         return { ...state, value : (state.value - action.payload) }
+//     }else if(action.type === 'toggleCounter'){
+//         return { ...state, showCounter : !state.showCounter }
+//     }else if(action.type === 'reset'){
+//         return { ...state, value : (state.value = action.payload) }
+//     }else{
+//         return state;
+//     }
+// }
+
+// const store = createStore(counterReducer);
+
+// now we needed the handle subscribe with needed component so
+// subscribe that be as provider as a wrapper component into APP.js where App.js that act as needed component!
+
+// { increase , decrease , reset , toggleCounter } =  counterSlice.actions; // de-structure method !

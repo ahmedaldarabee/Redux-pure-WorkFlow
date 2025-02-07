@@ -1,4 +1,4 @@
-import { createStore } from 'redux'
+import { createSlice , createStore} from '@reduxjs/toolkit'
 
 // notes:
 //state must be as object
@@ -17,23 +17,26 @@ let initState = {
     showCounter:true
 }
 
-const counterReducer = (state = initState , action) => {
-    if(action.type === 'increase'){
-        return { ...state, value : (state.value + action.payload) }
-    }else if(action.type === 'decrease'){ 
-        return { ...state, value : (state.value - action.payload) }
-    }else if(action.type === 'toggleCounter'){
-        return { ...state, showCounter : !state.showCounter }
-    }else if(action.type === 'reset'){
-        return { ...state, value : (state.value = action.payload) }
-    }else{
-        return state;
+const counterSlice = createSlice({
+    name:"counter",
+    initialState: initState,
+    reducers : {
+        increase:(state , action)=>{
+            state.value += action.payload
+        },
+        decrease:(state , action)=>{
+            state.value -= action.payload
+        },
+        reset:(state , action)=>{
+            state.value = 0
+        },
+        toggleCounter:(state , action)=>{
+            state.showCounter = !state.showCounter;
+        }
     }
-}
+})
 
-const store = createStore(counterReducer);
 
-//now we needed the handle subscribe with needed component so
-// subscribe that be as provider as a wrapper component into APP.js where App.js that act as needed component!
-
+const store = createStore(counterSlice.reducer);
+export const { increase , decrease , reset , toggleCounter } =  counterSlice.actions;
 export default store;
