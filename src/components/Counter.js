@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useEffect , useCallback}  from 'react'
-import { useSelector, useDispatch } from '@reduxjs/toolkit';
+import { useSelector, useDispatch } from 'react-redux';
 import { increase , decrease , reset } from '../store/counterSlice'
 import {loggIn,loggOut} from '../store/authSlice'
 
@@ -14,7 +14,7 @@ const Counter = () => {
     }
     const loginHandler = () => {
         if (isLogin()) {
-            dispatcher(loggOut());
+            dispatcher(loggOut(0));
         } else {
             dispatcher(loggIn());
         }
@@ -50,7 +50,7 @@ const Counter = () => {
                         <div className="m-20 button-handler flex-center gap-20">
                             <button onClick={() => counterHandler('increase',10) }  type="button" className="capitalize pointer increase">increase</button>
                             <button onClick={() => counterHandler('decrease',5)  }  type="button" className="capitalize pointer decrease">decrease</button>
-                            <button onClick={() => counterHandler('reset')}        type="reset" className="capitalize pointer decrease">reset</button>
+                            <button onClick={() => counterHandler('reset')}         type="reset" className="capitalize pointer decrease">reset</button>
                         </div>
                     </div>
                 }
