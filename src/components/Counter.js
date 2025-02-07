@@ -1,7 +1,7 @@
 import '../App.css';
-import React, { Fragment, useCallback, useEffect } from 'react'
+import React  from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { increase , decrease , reset , toggleCounter } from '../store/index'
+import { increase , decrease , reset , toggleCounter } from '../store/counterSlice'
 
 const Counter = () => {
 
@@ -9,13 +9,13 @@ const Counter = () => {
     const dispatcher = useDispatch();
 
     return (
-        <Fragment>
+        <>
             <div className="parent-counter full-width flex-center flex-col gap-20 m-20">
                 <div className="container pointer text-center">
-                    { globalState.showCounter && 
+                    { globalState.counter.showCounter && 
                     <div>
                         <div className="text-section">
-                            <p className="bold"> <span className='capitalize'>counter:</span> <span className="span-counter">{globalState.value}</span> </p>
+                            <p className="bold"> <span className='capitalize'>counter:</span> <span className="span-counter">{globalState.counter.value}</span> </p>
                         </div>
                         
                         <div className="m-20 button-handler flex-center gap-20">
@@ -32,7 +32,7 @@ const Counter = () => {
 
                 </div>
             </div>
-        </Fragment>
+        </>
     );
 }
 
