@@ -1,7 +1,7 @@
-What's the redux toolkit - [ This resources from chatGPT ] 
+What's the redux toolkit - [ This resource from chatGPT ] 
 
 طريقة لتبسيط لورك فلو الخاص بريدكس وذلك لتحسين الأداء وعلاج مشاكل كثيرة ومنها الأداء و مشاكل خاصة بالستات مثل 
-Immutate State
+Immutable State
 
 Redux Toolkit (RTK) is the official, recommended way to write Redux logic in modern React applications. It simplifies Redux development by providing a set of utilities that reduce boilerplate, improve performance, and enforce best practices.
 
@@ -9,5 +9,6 @@ Core APIs in Redux Toolkit
 
 1. configureStore() – Creates a Redux store with built-in middleware and DevTools support.  
 2. createSlice() – Generates reducers and actions in a concise way.  
+
 3. createAsyncThunk() – Handles async logic like API requests with loading and error states.  
 4. createEntityAdapter() – Provides helpers for managing normalized state.  
